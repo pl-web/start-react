@@ -7,6 +7,11 @@
   <script src="../JS-Files/babel.min.js"></script>
   <script src="../JS-Files/react.development.js"></script>
   <script src="../JS-Files/react-dom.js"></script>
+  <style type="text/css">
+    .text {
+      color: rgb(79, 202, 202);
+    }
+  </style>
 </head>
 <body>
   <div id="jsx"></div>
@@ -14,7 +19,7 @@
     const text = 'Hello World, Hello React.'
     // 1. 创建虚拟DOM
     const VDOM = (
-      <h1>{ text }</h1> // 1、不加引号  2、数据,使用{}来包裹
+      <h1 className="text">{ text }</h1> // 1、不加引号  2、数据,使用{}来包裹  3、class => className
     )
     // 2. 渲染虚拟DOM
     ReactDOM.render(VDOM, document.getElementById('jsx'))
