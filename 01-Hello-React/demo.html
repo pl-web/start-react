@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS-Files/babel.min.js"></script>
+  <script src="../JS-Files/react.development.js"></script>
+  <script src="../JS-Files/react-dom.js"></script>
+</head>
+<body>
+  <div id="demo"></div>
+  <script type="text/babel">
+    // 1. 创建虚拟DOM
+    const VDOM = <h1>Hello World, Hello React.</h1>
+    // 2. 渲染虚拟DOM
+    ReactDOM.render(VDOM, document.getElementById('demo'))
+  </script>
+</body>
+</html>
