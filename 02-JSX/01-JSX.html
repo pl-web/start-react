@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS-Files/babel.min.js"></script>
+  <script src="../JS-Files/react.development.js"></script>
+  <script src="../JS-Files/react-dom.js"></script>
+</head>
+<body>
+  <div id="jsx"></div>
+  <script type="text/babel">
+    const text = 'Hello World, Hello React.'
+    // 1. 创建虚拟DOM
+    const VDOM = (
+      <h1>{ text }</h1> // 1、不加引号  2、数据,使用{}来包裹
+    )
+    // 2. 渲染虚拟DOM
+    ReactDOM.render(VDOM, document.getElementById('jsx'))
+  </script>
+</body>
+</html>
