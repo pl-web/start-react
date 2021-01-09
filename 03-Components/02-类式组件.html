@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS-Files/babel.min.js"></script>
+  <script src="../JS-Files/react.development.js"></script>
+  <script src="../JS-Files/react-dom.js"></script>
+</head>
+<body>
+  <div id="test"></div>
+  <script type="text/babel">
+    // 1. 创建类式组件
+    class Demo extends React.Component {
+      // 必须有render函数，必须有返回值
+      render() {
+        return (<h1>类式组件（适用于“复杂组件”的定义）</h1>)
+      }
+    }
+    // 2. 渲染组件到页面
+    ReactDOM.render(<Demo />, document.getElementById('test'))
+  </script>
+</body>
+</html>
