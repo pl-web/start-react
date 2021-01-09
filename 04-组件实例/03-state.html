@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS-Files/babel.min.js"></script>
+  <script src="../JS-Files/react.development.js"></script>
+  <script src="../JS-Files/react-dom.js"></script>
+</head>
+<body>
+  <div id="test"></div>
+  <script type="text/babel">
+    // 1. 创建类式组件
+    class Demo extends React.Component {
+      // 构造器函数
+      constructor(props) {
+        super(props)
+        // 修改state
+        this.state = {
+          isWork: true
+        }
+        // !important
+        this.workOrRest = this.clickHandler.bind(this)
+      }
+
+      // 自定义函数
+      // clickHandler 在 Demo 的原型对象上，供实例使用
+      // 由于clickHandler是作为onClick的回调使用的，所以不是通过实例调用的，是直接调用
+      // 类中的方法默认开启了局部的严格模式，所以clickHandler中的this为undefined
+      clickHandler() {
+        // this.state 不可以直接更改
+        // 要借助内置的一个API进行更改 -- 这样的更改在React中才有效果
+        const isWork = this.state.isWork
+        this.setState({
+          isWork: !isWork
+        })
+      }
+
+      // render函数
+      render() {
+        return (
+          <h1 onClick={this.workOrRest}>今天{ this.state.isWork ? '工作':'不工作' }</h1>
+        )
+      }
+    }
+
+    // 2. 渲染组件到页面
+    ReactDOM.render(<Demo />, document.getElementById('test'))
+  </script>
+</body>
+</html>
