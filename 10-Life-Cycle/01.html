@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS-Files/babel.min.js"></script>
+  <script src="../JS-Files/react.development.js"></script>
+  <script src="../JS-Files/react-dom.js"></script>
+</head>
+<body>
+  <div id="test"></div>
+  <script type="text/babel">
+    // create component by class way
+    class LifeCycle extends React.Component {
+      // state
+      state = {
+        opacity: 1
+      }
+
+      // uninstall or remove component
+      removerComponent = () => {
+        React.unmountComponentAtNode(document.getElementById('test'))
+      }
+
+      // render LifeCycle
+      render() {
+        return (
+          <div>
+            <span style={{opacity: this.state.opacity}}>React Learning ...</span><br />
+            <button>Click</button>
+          </div>
+        )
+      }
+    }
+
+    // render or mount(name) component to page
+    ReactDOM.render(<LifeCycle />, document.getElementById('test'))
+  </script>
+</body>
+</html>
