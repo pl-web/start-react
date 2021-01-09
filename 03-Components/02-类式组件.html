@@ -14,12 +14,19 @@
     // 1. 创建类式组件
     class Demo extends React.Component {
       // 必须有render函数，必须有返回值
+      // render 在 Demo 的原型对象上，供实例使用
+      // render 中的 this, Demo 的实例对象， Demo组件的实例化对象
       render() {
         return (<h1>类式组件（适用于“复杂组件”的定义）</h1>)
       }
     }
     // 2. 渲染组件到页面
     ReactDOM.render(<Demo />, document.getElementById('test'))
+    /* 
+      1. React解析组件标签，找到Demo组件
+      2. 发现组件是类定义的，随后new出来一个该类的实例，并通过该实例调用原型上面的render方法
+      3. 将render返回的虚拟DOM转为真实DOM，并渲染到test中
+    */
   </script>
 </body>
 </html>
