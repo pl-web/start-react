@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS-Files/babel.min.js"></script>
+  <script src="../JS-Files/react.development.js"></script>
+  <script src="../JS-Files/react-dom.js"></script>
+</head>
+<body>
+  <div id="test"></div>
+  <script type="text/babel">
+    // create one component by class
+    class LoginComponent extends React.Component {
+      // defined function
+      processSubmit = (event) => {
+        event.preventDefault(); // prevent form submit event
+        const { username, password } = this
+        alert(`username: ${username.value}, password: ${password.value}`)
+      }
+
+      // render
+      render() {
+        return (
+          <form action="" onSubmit={this.processSubmit}>
+            username: <input ref={(c) => {this.username = c}} type="text" /> <br />
+            password: <input ref={(c) => {this.password = c}} type="password" /> <br />
+            <button>Login</button> 
+          </form>
+        )
+      }
+    }
+
+    // render LoginComponent component
+    ReactDOM.render(<LoginComponent />, document.getElementById('test'))
+  </script>
+</body>
+</html>
