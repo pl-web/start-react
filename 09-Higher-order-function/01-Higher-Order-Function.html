@@ -25,8 +25,8 @@
         const { username, password } = this.state
         alert(`username: ${username}, password: ${password}`)
       }
-      saveFormData = (event, formitem) => {
-        return () => {
+      saveFormData = (formitem) => {
+        return (event) => {
           const itemValue = event.target.value; 
           // can event.target.value wirte in this state
           this.setState({
@@ -39,8 +39,8 @@
       render() {
         return (
           <form action="" onSubmit={this.processSubmit}>
-            username: <input onChange={this.saveFormData(event, 'username')} type="text" name="username" /> <br />
-            password: <input onChange={this.saveFormData(event, 'password')} type="password" name="password" /> <br />
+            username: <input onChange={this.saveFormData('username')} type="text" name="username" /> <br />
+            password: <input onChange={this.saveFormData('password')} type="password" name="password" /> <br />
             <button>Login</button> 
           </form>
         )
