@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS-Files/babel.min.js"></script>
+  <script src="../JS-Files/react.development.js"></script>
+  <script src="../JS-Files/react-dom.js"></script>
+  <style type="text/css">
+    .text {
+      color: rgb(79, 202, 202);
+    }
+  </style>
+</head>
+<body>
+  <div id="jsx"></div>
+  <script type="text/babel">
+    const data = ['Angular', 'React', 'Vue'];
+    // 1. 创建虚拟DOM
+    const VDOM = (
+      <div>
+        <h2>FrameWork</h2>
+        <ul>
+          {data} 
+        </ul>
+      </div>
+    );
+    // 2. 渲染虚拟DOM
+    ReactDOM.render(VDOM, document.getElementById('jsx'));
+  </script>
+</body>
+</html>
