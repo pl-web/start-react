@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS-Files/babel.min.js"></script>
+  <script src="../JS-Files/react.development.js"></script>
+  <script src="../JS-Files/react-dom.js"></script>
+</head>
+<body>
+  <div id="test0"></div>
+  <div id="test1"></div>
+  <div id="test2"></div>
+  <script type="text/babel">
+    // 1. 创建组件
+    class Person extends React.Component {
+
+      // render
+      render() {
+        return (
+          <ul>
+            <li>name: {this.props.name}</li>  
+            <li>age: {this.props.age}</li>  
+            <li>gender: {this.props.gender}</li>  
+          </ul>
+        )
+      }
+    }
+
+    const person = { name: 'John', age: 20, gender: 'male'}
+    // 2. 渲染组件
+    ReactDOM.render(<Person {...person}/>, document.getElementById('test0'))
+    ReactDOM.render(<Person name="Jerry" age="21" gender="female"/>, document.getElementById('test1'))
+    ReactDOM.render(<Person name="Tom" age="22" gender="male"/>, document.getElementById('test2'))
+  </script>
+</body>
+</html>
