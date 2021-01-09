@@ -28,11 +28,11 @@
       }
     }
 
-    const person = { name: 'John', age: 20, gender: 'male'}
+    const John = { name: 'John', age: 20, gender: 'male'}
     // 2. 渲染组件
-    ReactDOM.render(<Person {...person}/>, document.getElementById('test0'))
-    ReactDOM.render(<Person name="Jerry" age="21" gender="female"/>, document.getElementById('test1'))
-    ReactDOM.render(<Person name="Tom" age="22" gender="male"/>, document.getElementById('test2'))
+    ReactDOM.render(<Person {...John}/>, document.getElementById('test0'))
+    ReactDOM.render(<Person name="Jerry" age={21} gender="female"/>, document.getElementById('test1'))
+    ReactDOM.render(<Person name="Tom" age={22} gender="male"/>, document.getElementById('test2'))
   </script>
 </body>
 </html>
