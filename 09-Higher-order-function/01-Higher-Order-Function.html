@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS-Files/babel.min.js"></script>
+  <script src="../JS-Files/react.development.js"></script>
+  <script src="../JS-Files/react-dom.js"></script>
+</head>
+<body>
+  <div id="test"></div>
+  <script type="text/babel">
+    // create one component by class
+    class LoginComponent extends React.Component {
+      // initial state
+      state = {
+        username: '',
+        password: ''
+      }
+
+      // defined function
+      processSubmit = (event) => {
+        event.preventDefault(); // prevent form submit event
+        const { username, password } = this.state
+        alert(`username: ${username}, password: ${password}`)
+      }
+      saveFormData = (event, formitem) => {
+        return () => {
+          const itemValue = event.target.value; 
+          // can event.target.value wirte in this state
+          this.setState({
+            [formitem]: itemValue
+          })
+        }
+      }
+
+      // render
+      render() {
+        return (
+          <form action="" onSubmit={this.processSubmit}>
+            username: <input onChange={this.saveFormData(event, 'username')} type="text" name="username" /> <br />
+            password: <input onChange={this.saveFormData(event, 'password')} type="password" name="password" /> <br />
+            <button>Login</button> 
+          </form>
+        )
+      }
+    }
+
+    // render LoginComponent component
+    ReactDOM.render(<LoginComponent />, document.getElementById('test'))
+  </script>
+</body>
+</html>
