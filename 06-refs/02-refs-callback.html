@@ -13,6 +13,10 @@
   <script type="text/babel">
     // 1. 创建组件
     class Case extends React.Component {
+      // state
+      state = {
+        isWork: true
+      }
 
       // function
       showContent = () => {
@@ -20,12 +24,20 @@
         alert(this.input1.value);
       }
 
+      workOrRest = () => {
+        this.setState({
+          isWork: !this.state.isWork
+        })
+      }
+
       // render
       render() {
         return (
           <div>
-            <input ref={(currentNode) => {this.input1 = currentNode}} type="text" placeholder="点击右侧按钮读取该内容" /><br />
-            <button onClick={this.showContent}>按钮</button>
+            <input ref={(currentNode) => {this.input1 = currentNode; console.log('See me, It is running');}} type="text" placeholder="点击右侧按钮读取该内容" /><br />
+            <button onClick={this.showContent}>按钮</button><br />
+            <span>{this.state.isWork ? 'Work':'Not Work'}</span><br />
+            <button onClick={this.workOrRest}>工作与否</button>
           </div>
         )
       }
