@@ -13,6 +13,7 @@
   <div id="test0"></div>
   <div id="test1"></div>
   <div id="test2"></div>
+  <div id="test3"></div>
   <script type="text/babel">
     // 1. 创建组件
     class Person extends React.Component {
@@ -31,14 +32,21 @@
 
     // 限制 props 的内容
     Person.propTypes = {
-      name: PropTypes.string // Cannot read property 'string' of undefined    15-  not 16+ 
+      name: PropTypes.string.isRequired // Cannot read property 'string' of undefined    15-  not 16+ 
+    }
+    // props 默认值
+    Person.defaultProps = {
+      gender: 'female',
+      age: 18
     }
 
     const John = { name: 'John', age: 20, gender: 'male'}
+    const Mary = { name: 'Mary' }
     // 2. 渲染组件
-    ReactDOM.render(<Person {...John}/>, document.getElementById('test0'))
+    ReactDOM.render(<Person {...John} />, document.getElementById('test0'))
     ReactDOM.render(<Person name="Jerry" age={21} gender="female"/>, document.getElementById('test1'))
     ReactDOM.render(<Person name="Tom" age={22} gender="male"/>, document.getElementById('test2'))
+    ReactDOM.render(<Person {...Mary} />, document.getElementById('test3'))
   </script>
 </body>
 </html>
