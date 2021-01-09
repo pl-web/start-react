@@ -17,13 +17,15 @@
       // function
       showContent = () => {
         // alert('show content');
+        // console.log(this.refs.input1);
+        alert(this.refs.input1.value);
       }
 
       // render
       render() {
         return (
           <div>
-            <input type="text" placeholder="点击右侧按钮读取该内容" />  
+            <input ref="input1" type="text" placeholder="点击右侧按钮读取该内容" /><br />
             <button onClick={this.showContent}>按钮</button>
           </div>
         )
