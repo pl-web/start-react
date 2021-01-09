@@ -22,10 +22,18 @@
         }
       }
 
+      // 自定义函数
+      // clickHandler 在 Demo 的原型对象上，供实例使用
+      // 由于clickHandler是作为onClick的回调使用的，所以不是通过实例调用的，是直接调用
+      // 类中的方法默认开启了局部的严格模式，所以clickHandler中的this为undefined
+      clickHandler() {
+        console.log(this);  // undefined
+      }
+
       // render函数
       render() {
         return (
-          <h1>今天{ this.state.isWork ? '工作':'不工作' }</h1>
+          <h1 onClick={this.clickHandler}>今天{ this.state.isWork ? '工作':'不工作' }</h1>
         )
       }
     }
