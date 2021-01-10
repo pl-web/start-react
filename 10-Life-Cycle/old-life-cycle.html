@@ -41,6 +41,12 @@
       componentWillUnmount() {
         console.log('Count, componentWillUnmount');
       }
+      // shouldComponentUpdate ==> like a vavle
+      // return false ==> stop update
+      // return true ==> continue (defalut)
+      shouldComponentUpdate() {
+        console.log('Count, shouldComponentUpdate');
+      }
 
       // render
       render() {
