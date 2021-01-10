@@ -20,7 +20,7 @@
 
       // defined function
       changeOpacity = () => {
-        setInterval(() => {
+        this.timer = setInterval(() => {
           let { opacity } = this.state;
           opacity -= 0.1;
           if (opacity <= 0) opacity = 1;
@@ -36,7 +36,8 @@
 
       // uninstall or remove component
       removerComponent = () => {
-        React.unmountComponentAtNode(document.getElementById('test'))
+        clearInterval(this.timer)
+        ReactDOM.unmountComponentAtNode(document.getElementById('test'))
       }
 
       // render LifeCycle
@@ -46,7 +47,7 @@
         return (
           <div>
             <span style={{opacity: this.state.opacity}}>React Learning ...</span><br />
-            <button onClick={this.removerComponent}>Click</button>
+            <button onClick={this.removerComponent}>Click Remove Component</button>
           </div>
         )
       }
