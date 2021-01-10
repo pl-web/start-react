@@ -50,7 +50,7 @@
         return true // this sentence is required
       }
       // componentDidUpdate
-      componentDidUpdate() {
+      componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('Count, componentDidUpdate');
       }
       // getDerivedStateFromProps
@@ -60,6 +60,7 @@
       }
       getSnapshotBeforeUpdate() {
         console.log('Count, getSnapshotBeforeUpdate');
+        return null;
       }
 
       // render
