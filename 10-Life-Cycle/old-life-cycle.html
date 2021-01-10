@@ -27,6 +27,9 @@
         const { count } = this.state;
         this.setState({count: count + 1});
       }
+      remove = () => {
+        ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+      }
 
       // all life cycle
       componentWillMount() {
@@ -35,6 +38,9 @@
       componentDidMount() {
         console.log('Count, componentDidMount');
       }
+      componentWillUnmount() {
+        console.log('Count, componentWillUnmount');
+      }
 
       // render
       render() {
@@ -42,7 +48,8 @@
         return (
           <div>
             <h1>count: {this.state.count}</h1>
-            <button onClick={this.add}>Click Add Count</button>
+            <button onClick={this.add}>Click Add Count</button><br />
+            <button onClick={this.remove}>Click Remove Component</button>
           </div>
         )
       }
