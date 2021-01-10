@@ -5,34 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="../JS-Files/babel.min.js"></script>
-  <script src="../JS-Files/react.development.js"></script>
-  <script src="../JS-Files/react-dom.js"></script>
+  <script src="../JS-Files/react.development.17.js"></script>
+  <script src="../JS-Files/react-dom.development.17.js"></script>
 </head>
 <body>
   <div id="test"></div>
   <script type="text/babel">
-    // create component by class way
-    class AnotherComponent extends React.Component {
-      state = {
-        initialNumber: 0
-      }
-
-      changeInitialNumber = () => {
-        this.setState({
-          initialNumber: 1
-        })
-      }
-
-      render() {
-        return (
-          <div>
-            <h1>AnotherComponent</h1>  
-            <button onClick={this.changeInitialNumber}>Click Transform State</button>
-            <Count initialNumber={this.state.initialNumber}></Count>
-          </div>
-        )
-      }
-    }
 
     // create component by class way
     class Count extends React.Component {
@@ -58,9 +36,6 @@
       }
 
       // all life cycle
-      componentWillMount() {
-        console.log('Count, componentWillMount');
-      }
       componentDidMount() {
         console.log('Count, componentDidMount');
       }
@@ -74,17 +49,14 @@
         console.log('Count, shouldComponentUpdate');
         return true // this sentence is required
       }
-      // componentWillUpdate
-      componentWillUpdate() {
-        console.log('Count, componentWillUpdate');
-      }
       // componentDidUpdate
       componentDidUpdate() {
         console.log('Count, componentDidUpdate');
       }
-      // componentWillReceiveProps
-      componentWillReceiveProps() {
-        console.log('Count, componentWillReceiveProps');
+      // getDerivedStateFromProps
+      static getDerivedStateFromProps() {
+        console.log('Count, getDerivedStateFromProps');
+        return null;
       }
 
       // render
@@ -96,15 +68,13 @@
             <button onClick={this.add}>Click Add Count</button><br />
             <button onClick={this.remove}>Click Remove Component</button><br />
             <button onClick={this.force}>Click Force Update</button><br />
-            <span>-------------------------------------------</span><br />
-            <span>receive data from another component {this.props.initialNumber} </span>
           </div>
         )
       }
     }
 
     // render or mount(name) component to page
-    ReactDOM.render(<AnotherComponent />, document.getElementById('test'))
+    ReactDOM.render(<Count />, document.getElementById('test'))
   </script>
 </body>
 </html>
