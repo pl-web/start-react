@@ -18,17 +18,35 @@
         opacity: 1
       }
 
+      // defined function
+      changeOpacity = () => {
+        setInterval(() => {
+          let { opacity } = this.state;
+          opacity -= 0.1;
+          if (opacity <= 0) opacity = 1;
+          this.setState({opacity});
+        }, 200)
+      }
+
+      // componentDidMount
+      // execute time: initial
+      componentDidMount() {
+        this.changeOpacity();
+      }
+
       // uninstall or remove component
       removerComponent = () => {
         React.unmountComponentAtNode(document.getElementById('test'))
       }
 
       // render LifeCycle
+      // render execute time == 1、initial 2、state change
       render() {
+        console.log('render function is running');
         return (
           <div>
             <span style={{opacity: this.state.opacity}}>React Learning ...</span><br />
-            <button>Click</button>
+            <button onClick={this.removerComponent}>Click</button>
           </div>
         )
       }
