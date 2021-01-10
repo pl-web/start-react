@@ -12,6 +12,29 @@
   <div id="test"></div>
   <script type="text/babel">
     // create component by class way
+    class AnotherComponent extends React.Component {
+      state = {
+        initialNumber: 0
+      }
+
+      changeInitialNumber = () => {
+        this.setState({
+          initialNumber: 1
+        })
+      }
+
+      render() {
+        return (
+          <div>
+            <h1>AnotherComponent</h1>  
+            <button onClick={this.changeInitialNumber}>Click Transform State</button>
+            <Count initialNumber={this.state.initialNumber}></Count>
+          </div>
+        )
+      }
+    }
+
+    // create component by class way
     class Count extends React.Component {
       // constructor
       constructor(props) {
@@ -59,6 +82,10 @@
       componentDidUpdate() {
         console.log('Count, componentDidUpdate');
       }
+      // componentWillReceiveProps
+      componentWillReceiveProps() {
+        console.log('Count, componentWillReceiveProps');
+      }
 
       // render
       render() {
@@ -68,14 +95,16 @@
             <h1>count: {this.state.count}</h1>
             <button onClick={this.add}>Click Add Count</button><br />
             <button onClick={this.remove}>Click Remove Component</button><br />
-            <button onClick={this.force}>Click Force Update</button>
+            <button onClick={this.force}>Click Force Update</button><br />
+            <span>-------------------------------------------</span><br />
+            <span>receive data from another component {this.props.initialNumber} </span>
           </div>
         )
       }
     }
 
     // render or mount(name) component to page
-    ReactDOM.render(<Count />, document.getElementById('test'))
+    ReactDOM.render(<AnotherComponent />, document.getElementById('test'))
   </script>
 </body>
 </html>
