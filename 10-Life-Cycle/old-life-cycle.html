@@ -30,6 +30,9 @@
       remove = () => {
         ReactDOM.unmountComponentAtNode(document.getElementById('test'))
       }
+      force = () => {
+        this.forceUpdate();
+      }
 
       // all life cycle
       componentWillMount() {
@@ -64,7 +67,8 @@
           <div>
             <h1>count: {this.state.count}</h1>
             <button onClick={this.add}>Click Add Count</button><br />
-            <button onClick={this.remove}>Click Remove Component</button>
+            <button onClick={this.remove}>Click Remove Component</button><br />
+            <button onClick={this.force}>Click Force Update</button>
           </div>
         )
       }
