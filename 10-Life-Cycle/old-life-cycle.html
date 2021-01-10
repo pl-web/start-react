@@ -48,6 +48,14 @@
         console.log('Count, shouldComponentUpdate');
         return true // this sentence is required
       }
+      // componentWillUpdate
+      componentWillUpdate() {
+        console.log('Count, componentWillUpdate');
+      }
+      // componentDidUpdate
+      componentDidUpdate() {
+        console.log('Count, componentDidUpdate');
+      }
 
       // render
       render() {
